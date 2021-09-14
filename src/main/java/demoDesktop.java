@@ -23,20 +23,34 @@ public class demoDesktop {
     SessionId sessionId;
     String buildName = null;
     DesiredCapabilities caps;
+    String BrowserValue;
+    String PlatformValue;
+    String BrowserVersion;
+    String Resolution;
+
+
+    public demoDesktop() {
+
+        String browsers = System.getenv("LT_BROWSERS");
+
+        JSONArray array = new JSONArray(browsers);
+
+        for (int i = 0; i <= array.length(); i++) {
+
+            JSONObject object = array.getJSONObject(i);
+          /*  System.out.println(object.getString("operatingSystem"));
+            System.out.println(object.getString("browserName"));*/
+            this.BrowserValue = object.getString("browserName");
+        }
+        System.out.println(this.BrowserValue);
+
+
+    }
 
 
     @BeforeTest
     public void setUp() throws Exception {
         //  Collection c= new ArrayList(System.getenv("LT_BROWSERS"));
-
-        String browsers = System.getenv("LT_BROWSERS");
-
-        JSONArray array = new JSONArray(browsers);
-        for (int i = 0; i < array.length(); i++) {
-            JSONObject object = array.getJSONObject(i);
-            System.out.println(object.getString("operatingSystem"));
-            System.out.println(object.getString("browserName"));
-        }
 
       /*  for (int i = 0; i < browsers.length; i++) {//length is the property of the array
             System.out.println(browsers[i]);
