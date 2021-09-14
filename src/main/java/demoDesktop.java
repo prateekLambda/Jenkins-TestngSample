@@ -23,10 +23,10 @@ public class demoDesktop {
     SessionId sessionId;
     String buildName = null;
     DesiredCapabilities caps;
-    String BrowserValue;
-    String PlatformValue;
-    String BrowserVersion;
-    String Resolution;
+    String BrowserValue = null;
+    String PlatformValue = null;
+    String BrowserVersion = null;
+    String Resolution = null;
 
 
     public demoDesktop() {
@@ -42,7 +42,7 @@ public class demoDesktop {
             System.out.println(object.getString("browserName"));*/
             this.BrowserValue = object.getString("browserName");
         }
-        System.out.println(this.BrowserValue);
+        System.out.println("+++++++++++++++++========================"+this.BrowserValue);
 
 
     }
