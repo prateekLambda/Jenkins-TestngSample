@@ -29,7 +29,9 @@ public class demoDesktop {
 
         String[] browsers = {System.getenv("LT_BROWSERS")};
 
-        System.out.println(browsers);
+        for (int i = 0; i < browsers.length; i++) {//length is the property of the array
+            System.out.println(browsers[i]);
+        }
 //        for (String s:browsers) {
 //            System.out.println(s);
 //        }
