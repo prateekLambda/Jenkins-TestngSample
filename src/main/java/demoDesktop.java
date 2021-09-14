@@ -29,8 +29,9 @@ public class demoDesktop {
     String Resolution = null;
 
 
-    public demoDesktop() {
 
+    @BeforeTest
+    public void setUp() throws Exception {
         String browsers = System.getenv("LT_BROWSERS");
 
         JSONArray array = new JSONArray(browsers);
@@ -44,12 +45,6 @@ public class demoDesktop {
         }
         System.out.println("+++++++++++++++++========================"+this.BrowserValue);
 
-
-    }
-
-
-    @BeforeTest
-    public void setUp() throws Exception {
         //  Collection c= new ArrayList(System.getenv("LT_BROWSERS"));
 
       /*  for (int i = 0; i < browsers.length; i++) {//length is the property of the array
