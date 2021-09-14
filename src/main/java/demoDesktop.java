@@ -20,20 +20,32 @@ public class demoDesktop {
     String hub;
     SessionId sessionId;
     String buildName = null;
+    DesiredCapabilities caps;
 
 
     @BeforeTest
     public void setUp() throws Exception {
+        //  Collection c= new ArrayList(System.getenv("LT_BROWSERS"));
+
+        String browsers = System.getenv("LT_BROWSERS");
+        System.out.println(browsers);
+
+//        for (String s:browsers) {
+//            System.out.println(s);
+//        }
+
         try {
-            buildName = "Demo Failed Test";
-            DesiredCapabilities caps = new DesiredCapabilities();
-            caps.setCapability("build", buildName);
-            caps.setCapability("name", "Demo");
-            caps.setCapability("platform", System.getenv("LT_OPERATING_SYSTEM"));
-            caps.setCapability("browserName", System.getenv("LT_BROWSER_NAME"));
-            caps.setCapability("version", System.getenv("LT_BROWSER_VERSION"));
-            caps.setCapability("resolution", System.getenv("LT_RESOLUTION"));
-            caps.setCapability("network", true);
+            if (browsers.matches("Chrome") || browsers.matches("Firefox")) {
+                buildName = "Demo Failed Test";
+                caps.setCapability("build", buildName);
+                caps.setCapability("name", "Demo");
+                caps.setCapability("platform", System.getenv("LT_OPERATING_SYSTEM"));
+                caps.setCapability("browserName", System.getenv("LT_BROWSER_NAME"));
+                caps.setCapability("version", System.getenv("LT_BROWSER_VERSION"));
+                caps.setCapability("resolution", System.getenv("LT_RESOLUTION"));
+            }
+
+                caps.setCapability("network", true);
             caps.setCapability("visual", false);
             caps.setCapability("console", "error");
             caps.setCapability("headless", false);
