@@ -1,4 +1,5 @@
 import org.apache.commons.lang.time.StopWatch;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -30,9 +31,12 @@ public class demoDesktop {
 
         String browsers = System.getenv("LT_BROWSERS");
 
-        JSONObject json = new JSONObject(browsers);
-        System.out.println(json.toString());
-
+        JSONArray array = new JSONArray(browsers);
+        for (int i = 0; i < array.length(); i++) {
+            JSONObject object = array.getJSONObject(i);
+            System.out.println(object.getString("operatingSystem"));
+            System.out.println(object.getString("browserName"));
+        }
 
       /*  for (int i = 0; i < browsers.length; i++) {//length is the property of the array
             System.out.println(browsers[i]);
