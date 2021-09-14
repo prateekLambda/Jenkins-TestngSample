@@ -39,9 +39,10 @@ public class demoDesktop {
         for (int i = 0; i <= array.length(); i++) {
 
             JSONObject object = array.getJSONObject(i);
-            System.out.println(object.getString("operatingSystem"));
-            System.out.println(object.getString("browserName"));
-           // this.BrowserValue = object.getString("browserName");
+           /* System.out.println(object.getString("operatingSystem"));
+            System.out.println(object.getString("browserName"));*/
+            this.BrowserValue = object.getString("browserName");
+            System.out.println("+++++++++++++++++"+this.BrowserValue);
         }
         System.out.println("+++++++++++++++++========================"+this.BrowserValue);
 
