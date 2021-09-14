@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class demoDesktop {
 
-    public String username = System.getProperty("");
-    public String accesskey = System.getProperty("");
+    public String username = System.getProperty("LT_USERNAME");
+    public String accesskey = System.getProperty("LT_ACCESS_KEY");
     public RemoteWebDriver driver;
     public String gridURL = "hub.lambdatest.com";
     String status;
