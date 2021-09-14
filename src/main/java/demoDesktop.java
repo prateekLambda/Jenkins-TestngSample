@@ -29,22 +29,21 @@ public class demoDesktop {
     String Resolution = null;
 
 
-
     @BeforeTest
     public void setUp() throws Exception {
         String browsers = System.getenv("LT_BROWSERS");
 
         JSONArray array = new JSONArray(browsers);
 
-        for (int i = 0; i <= array.length(); i++) {
+        for (int i = 0; i < array.length(); i++) {
 
             JSONObject object = array.getJSONObject(i);
            /* System.out.println(object.getString("operatingSystem"));
             System.out.println(object.getString("browserName"));*/
             this.BrowserValue = object.getString("browserName");
-            System.out.println("+++++++++++++++++"+this.BrowserValue);
+            System.out.println("+++++++++++++++++" + this.BrowserValue);
         }
-        System.out.println("+++++++++++++++++========================"+this.BrowserValue);
+        System.out.println("+++++++++++++++++========================" + this.BrowserValue);
 
         //  Collection c= new ArrayList(System.getenv("LT_BROWSERS"));
 
