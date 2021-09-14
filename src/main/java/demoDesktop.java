@@ -32,6 +32,7 @@ public class demoDesktop {
 
         for (int i = 0; i < browsers.length; i++) {//length is the property of the array
             System.out.println(browsers[i]);
+            System.out.println("Value of I===================================================="+i);
         }
 //        for (String s:browsers) {
 //            System.out.println(s);
