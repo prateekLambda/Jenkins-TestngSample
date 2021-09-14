@@ -27,13 +27,12 @@ public class demoDesktop {
     public void setUp() throws Exception {
         //  Collection c= new ArrayList(System.getenv("LT_BROWSERS"));
 
+        String browsers = System.getenv("LT_BROWSERS");
 
-        String[] browsers = {System.getenv("LT_BROWSERS")};
-
-        for (int i = 0; i < browsers.length; i++) {//length is the property of the array
+      /*  for (int i = 0; i < browsers.length; i++) {//length is the property of the array
             System.out.println(browsers[i]);
             System.out.println("Value of I===================================================="+i);
-        }
+        }*/
 //        for (String s:browsers) {
 //            System.out.println(s);
 //        }
