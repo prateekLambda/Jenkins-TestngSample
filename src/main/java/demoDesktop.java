@@ -29,9 +29,10 @@ public class demoDesktop {
         //  Collection c= new ArrayList(System.getenv("LT_BROWSERS"));
         JSONObject B = new JSONObject();
         B.get(System.getenv("LT_BROWSERS"));
-        System.out.println(B);
 
-      /*  String[] browsers = {System.getenv("LT_BROWSERS")};*/
+        System.out.println(B.get("browserName"));
+
+        /*  String[] browsers = {System.getenv("LT_BROWSERS")};*/
 
         /*for (int i = 0; i < B.length(); i++) {//length is the property of the array
             System.out.println(B[i]);
