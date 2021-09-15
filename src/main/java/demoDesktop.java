@@ -31,19 +31,7 @@ public class demoDesktop {
 
     @BeforeTest
     public void setUp() throws Exception {
-        String browsers = System.getenv("LT_BROWSERS");
 
-        JSONArray array = new JSONArray(browsers);
-
-        for (int i = 0; i < array.length(); i++) {
-
-            JSONObject object = array.getJSONObject(i);
-           /* System.out.println(object.getString("operatingSystem"));
-            System.out.println(object.getString("browserName"));*/
-            this.BrowserValue = object.getString("browserName");
-            System.out.println("+++++++++++++++++" + this.BrowserValue);
-        }
-        System.out.println("+++++++++++++++++========================" + this.BrowserValue);
 
         //  Collection c= new ArrayList(System.getenv("LT_BROWSERS"));
 
@@ -56,39 +44,47 @@ public class demoDesktop {
 //        }
 
         try {
-            //if (browsers.matches("Chrome") || browsers.matches("Firefox")) {
-            buildName = "Demo Failed Test";
-            caps.setCapability("build", buildName);
-            caps.setCapability("name", "Demo");
-            caps.setCapability("platform", System.getenv("LT_OPERATING_SYSTEM"));
-            caps.setCapability("browserName", System.getenv("LT_BROWSER_NAME"));
-            caps.setCapability("version", System.getenv("LT_BROWSER_VERSION"));
-            caps.setCapability("resolution", System.getenv("LT_RESOLUTION"));
-            // }
+            String browsers = System.getenv("LT_BROWSERS");
 
-            caps.setCapability("network", true);
-            caps.setCapability("visual", false);
-            caps.setCapability("console", "error");
-            caps.setCapability("headless", false);
+            JSONArray array = new JSONArray(browsers);
 
-            //  caps.setCapability("driver_version", "3.141.59");
+            for (int i = 0; i < array.length(); i++) {
 
-            StopWatch driverStart = new StopWatch();
-            driverStart.start();
+                JSONObject object = array.getJSONObject(i);
+                //if (browsers.matches("Chrome") || browsers.matches("Firefox")) {
+                buildName = "INternetStoreLambdaparallel";
+                caps.setCapability("build", buildName);
+                caps.setCapability("name", "Demo");
+                caps.setCapability("platform", object.getString("operatingSystem"));
+                caps.setCapability("browserName", object.getString("browserName"));
+                caps.setCapability("version", object.getString("browserVersion"));
+                caps.setCapability("resolution", object.getString("resolution"));
+                // }
 
-            hub = "https://" + username + ":" + accesskey + "@" + gridURL + "/wd/hub";
+                caps.setCapability("network", true);
+                caps.setCapability("visual", false);
+                caps.setCapability("console", "error");
+                caps.setCapability("headless", false);
 
-            driver = new RemoteWebDriver(new URL(hub), caps);
+                //  caps.setCapability("driver_version", "3.141.59");
 
-            sessionId = driver.getSessionId();
-            System.out.println(sessionId);
-            driverStart.stop();
-            float timeElapsed = driverStart.getTime() / 1000f;
-            System.out.println("Driver initiate time" + "   " + timeElapsed);
-            ArrayList<Float> TotalTimeDriverSetup = new ArrayList<Float>();
-            TotalTimeDriverSetup.add(timeElapsed);
-            System.out.println(TotalTimeDriverSetup);
+                StopWatch driverStart = new StopWatch();
+                driverStart.start();
 
+                hub = "https://" + username + ":" + accesskey + "@" + gridURL + "/wd/hub";
+
+                driver = new RemoteWebDriver(new URL(hub), caps);
+                DesktopScript();
+                tearDown();
+                sessionId = driver.getSessionId();
+                System.out.println(sessionId);
+                driverStart.stop();
+                float timeElapsed = driverStart.getTime() / 1000f;
+                System.out.println("Driver initiate time" + "   " + timeElapsed);
+                ArrayList<Float> TotalTimeDriverSetup = new ArrayList<Float>();
+                TotalTimeDriverSetup.add(timeElapsed);
+                System.out.println(TotalTimeDriverSetup);
+            }
 
         } catch (
                 MalformedURLException e) {
