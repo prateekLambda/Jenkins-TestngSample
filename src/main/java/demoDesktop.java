@@ -52,6 +52,14 @@ public class demoDesktop {
 
                 JSONObject object = array.getJSONObject(i);
                 //if (browsers.matches("Chrome") || browsers.matches("Firefox")) {
+                System.out.println( object.getString("operatingSystem"));
+                System.out.println( object.getString("browserName"));
+
+                System.out.println( object.getString("browserVersion"));
+
+                System.out.println( object.getString("resolution"));
+
+
                 buildName = "INternetStoreLambdaparallel";
                 caps.setCapability("build", buildName);
                 caps.setCapability("name", "Demo");
